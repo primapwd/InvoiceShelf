@@ -160,7 +160,7 @@
         /* -- Items Table -- */
 
         .items-table {
-            margin-top: 35px;
+            margin-top: 30px;
             padding: 0px 30px 10px 30px;
             page-break-before: avoid;
             page-break-after: auto;
@@ -325,6 +325,10 @@
         .pl-0 {
             padding-left: 0;
         }
+        
+        .mt-4 {
+            margin-top: 4px;
+        }
 
     </style>
 
@@ -344,13 +348,17 @@
                     @endif
                 </td>
             </tr>
+            <tr>
+                <td class="text-center">
+                    Kueku Surabaya
+                </td>
+            </tr>
         </table>
-        <hr class="header-bottom-divider" style="border: 0.620315px solid #E8E8E8;" />
+        <hr class="header-bottom-divider mt-4" style="border: 0.620315px solid #E8E8E8;" />
     </div>
 
-
-    <div class="content-wrapper">
-        <div style="padding-top: 30px; position: relative; clear: both;">
+    <div class="content-wrapper mt-4">
+        <div style="padding-top: 30px; clear: both;">
             <table width="100%" class="items-table" cellspacing="0" border="0">
                 <tr>
                     <td class="attribute-label">@lang('pdf_invoice_number')</td>
@@ -360,6 +368,10 @@
                     <td class="attribute-label">@lang('pdf_invoice_date')</td>
                     <td class="attribute-value"> &nbsp;{{ $invoice->formattedInvoiceDate }}</td>
                 </tr>
+                <tr>
+                    <td class="attribute-label">Pelanggan</td>
+                    <td class="attribute-value"> &nbsp;{{ $invoice->customer->name }}</td>
+                </tr>
             </table>
         </div>
 
@@ -367,7 +379,7 @@
             @include('pdf_templates::invoice.partials.struk-table')
         </div>
 
-        <div class="notes">
+        {{-- <div class="notes">
             @if ($notes)
                 <div class="notes-label">
                     @lang('pdf_notes')
@@ -375,7 +387,7 @@
 
                 {!! $notes !!}
             @endif
-        </div>
+        </div> --}}
     </div>
 </body>
 
